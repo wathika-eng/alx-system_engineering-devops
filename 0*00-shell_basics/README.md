@@ -1,1 +1,1 @@
-shell basics
+shell code to show your working directory
