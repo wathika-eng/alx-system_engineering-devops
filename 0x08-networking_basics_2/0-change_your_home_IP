@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+# editing host files and change the dns
+
+sudo touch /etc/hostsnew
+
+echo "127.0.0.2 localhost" | sudo tee -a /etc/hostsnew
+echo "8.8.8.8 facebook.com" | sudo tee -a /etc/hostsnew
+
+cat /etc/hostsnew
