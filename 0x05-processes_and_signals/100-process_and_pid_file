@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+# Create a ff /var/run/holbertonscript.pid containing the script PID.
+
+ff="/var/run/myscript.pid"
+
+if [ ! -e "$ff" ]; then
+  touch "$ff"
+fi
+
+sleep 2 &
+
+echo "$!" > "$ff"
+
+trap 'echo "I hate the kill command"; rm "$ff"; exit' SIGTERM SIGQUIT
+
+trap "echo Y U no love me?!" SIGINT
+
+while true; do
+  echo "To infinity and beyond"
+  sleep 2
+done
