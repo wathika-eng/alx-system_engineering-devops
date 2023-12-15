@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+
+B="Best School"
+H="Hi"
+a=1
+
+while [ $a -le 10 ];
+do
+	if [ $a -eq 9 ];
+	then
+		echo "$B"
+		echo "$H"
+	else
+		echo "$B"
+	fi
+	((a++))
+done
