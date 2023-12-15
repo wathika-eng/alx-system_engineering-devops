@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+# When loop reaches 9, print Hi
 
 B="Best School"
 H="Hi"

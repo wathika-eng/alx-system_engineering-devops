@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+# Printing Best school *10 using Until
 
 B="Best School"
 a=0

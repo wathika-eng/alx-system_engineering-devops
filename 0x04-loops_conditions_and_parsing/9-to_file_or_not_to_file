@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+# check for a ff
+
+ff="school"
+
+if [ -e "$ff" ]; then
+    echo "school ff exists"
+
+    if [ -s "$ff" ]; then
+        echo "school ff is not empty"
+    else
+        echo "school ff is empty"
+    fi
+
+    if [ -f "$ff" ]; then
+        echo "school is a regular ff"
+    fi
+else
+    echo "school ff does not exist"
+fi
