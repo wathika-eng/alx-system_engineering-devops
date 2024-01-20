@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+#Client configuration file
+
+Host 35.153.93.152
+    HostName ubuntu
+    User ubuntu
+    IdentityFile ~/.ssh/school
+    PasswordAuthentication no
+
