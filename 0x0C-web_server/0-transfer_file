@@ -1,0 +1,36 @@
+#!/usr/bin/env bash
+# Transferring a file from local to server
+
+
+if [ "$#" -lt 4 ]; then
+    echo "Usage: $0 PATH_TO_FILE IP USERNAME PATH_TO_SSH_KEY"
+    exit 1
+fi
+
+
+file_path="$1"
+server_ip="$2"
+username="$3"
+ssh_key_path="$4"
+
+
+if [ ! -f "$file_path" ]; then
+    echo "Error: File not found - $file_path"
+    exit 1
+fi
+
+
+echo "Transferring file: $file_path"
+echo "To server: $server_ip"
+echo "Username: $username"
+echo "Using SSH key: $ssh_key_path"
+
+scp -o StrictHostKeyChecking=no -i "$ssh_key_path" "$file_path" "$username@$server_ip":~/ 
+
+
+if [ $? -eq 0 ]; then
+    echo "File transferred successfully."
+else
+    echo "Error: File transfer failed."
+fi
+
