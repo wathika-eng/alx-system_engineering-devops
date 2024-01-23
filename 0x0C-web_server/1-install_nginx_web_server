@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+sudo apt update
+sudo apt install -y nginx
+sudo ch -c 'echo "server {
+	listen 80;
+	server_name _:
+
+	location / {
+		echo \"Hello World!\":
+	}
+}" > /etc/nginx/sites-available/default'
+sudo kill -s HUP $(cat /var/run/nginx.pid)
+
+
