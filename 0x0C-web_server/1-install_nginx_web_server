@@ -1,14 +1,8 @@
 #!/usr/bin/env bash
-sudo apt update
-sudo apt install -y nginx
-sudo ch -c 'echo "server {
-	listen 80;
-	server_name _:
+#Installing nginx on my server
 
-	location / {
-		echo \"Hello World!\":
-	}
-}" > /etc/nginx/sites-available/default'
-sudo kill -s HUP $(cat /var/run/nginx.pid)
+apt-get update
+apt-get install -y nginx
 
-
+echo "Hello World!" > /var/www/html/index.nginx-debian.html
+service nginx restart
