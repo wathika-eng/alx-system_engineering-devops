@@ -16,7 +16,7 @@ SERVER_CONFIG=\
 	location / {
 		try_files \$uri \$uri/ =404;
 	}
-	if (\$request_filename ~ redirect_me) or /redirect_me/ {
+	if (\$request_filename ~ redirect_me) {
 		rewrite ^ https://www.youtube.com/watch?v=QH2-TGUlwu4 permanent;
 	}
 }"
