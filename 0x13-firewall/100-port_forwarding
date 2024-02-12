@@ -1,6 +1,5 @@
-sudo vim /etc/ufw/before.rules >>*nat
-:PREROUTING ACCEPT [0:0]
--A PREROUTING -p tcp --dport 8080 -j REDIRECT --to-port 80
-COMMIT
-
+sudo sh -c 'echo "*nat" >> /etc/ufw/before.rules'
+sudo sh -c 'echo ":PREROUTING ACCEPT [0:0]" >> /etc/ufw/before.rules'
+sudo sh -c 'echo "-A PREROUTING -p tcp --dport 8080 -j REDIRECT --to-port 80" >> /etc/ufw/before.rules'
+sudo sh -c 'echo "COMMIT" >> /etc/ufw/before.rules'
 sudo ufw reload
