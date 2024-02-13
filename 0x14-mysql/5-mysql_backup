@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+# Backup a mysql DB
+current_date=$(date +%d-%m-%Y)
+backup_file="./backup_$current_date.tar.gz"
+mysqldump_command="mysqldump -uroot -p'$1' --all-databases > ./backup.sql"
+eval "$mysqldump_command"
+tar_command="tar -czf $backup_file ./backup.sql"
+eval "$tar_command"
+# rm "./backup.sql"
