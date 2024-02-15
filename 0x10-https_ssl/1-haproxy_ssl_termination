@@ -1,0 +1,33 @@
+global
+    # Specify the maximum number of connections HAProxy can handle
+    maxconn 4096
+
+    # Enable SSL
+    ssl-default-bind-options no-sslv3
+    ssl-default-bind-ciphers <cipher-suite>
+
+defaults
+    # Configure default options
+    mode http
+    log global
+    option httplog
+    option dontlognull
+    timeout connect 5000
+    timeout client 50000
+    timeout server 50000
+
+frontend http-in
+    bind *:80
+    bind *:443 ssl crt /path/to/ssl/certificate.pem
+    reqadd X-Forwarded-Proto:\ https
+
+    acl is_ssl_traffic ssl_fc
+    redirect scheme https if !is_ssl_traffic
+
+    acl is_www_subdomain hdr(host) -i www.example.com
+
+    use_backend www-backend if is_www_subdomain
+
+backend www-backend
+    mode http
+    server web-server 127.0.0.1:8080 check
