@@ -43,8 +43,7 @@ def export_employee_todo_csv(employee_id):
 
     with open(csv_filename, mode="w", newline="") as file:
         writer = csv.writer(file)
-        writer.writerow(
-            ["USER_ID", "USERNAME", "TASK_COMPLETED_STATUS", "TASK_TITLE"])
+        writer.writerow(["USER_ID", "USERNAME", "TASK_COMPLETED_STATUS", "TASK_TITLE"])
         writer.writerows(csv_data)
 
     print(f"CSV file '{csv_filename}' has been created.")
