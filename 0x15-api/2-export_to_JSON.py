@@ -51,4 +51,5 @@ def export_to_JSON(employee_id):
     print(f"JSON file '{json_filename}' has been created.")
 
 
-export_to_JSON(sys.argv[1])
+if __name__ == "__main__":
+    export_to_JSON(sys.argv[1])
