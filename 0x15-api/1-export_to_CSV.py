@@ -49,4 +49,6 @@ def export_employee_todo_csv(employee_id):
     print(f"CSV file '{csv_filename}' has been created.")
 
 
-export_employee_todo_csv(sys.argv[1])
+if __name__ == "__main__":
+    """Run only when called by name"""
+    export_employee_todo_csv(sys.argv[1])

@@ -52,4 +52,5 @@ def export_to_JSON(employee_id):
 
 
 if __name__ == "__main__":
+    """Run only when called by name"""
     export_to_JSON(sys.argv[1])

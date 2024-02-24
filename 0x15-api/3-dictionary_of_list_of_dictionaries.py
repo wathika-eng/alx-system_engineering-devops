@@ -50,4 +50,6 @@ def export_to_JSON():
     print(f"JSON file '{json_filename}' has been created.")
 
 
-export_to_JSON()
+if __name__ == "__main__":
+    """Run only when called by name"""
+    export_to_JSON()

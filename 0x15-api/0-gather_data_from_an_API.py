@@ -42,4 +42,6 @@ def get_employee_todo_progress(employee_id):
         print(f"\t{task['title']}")
 
 
-get_employee_todo_progress(sys.argv[1])
+if __name__ == "__main__":
+    """Run only when called by name"""
+    get_employee_todo_progress(sys.argv[1])
