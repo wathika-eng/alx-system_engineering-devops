@@ -39,11 +39,11 @@ def export_employee_todo_csv(employee_id):
         task_id = task["id"]
         task_title = task["title"]
         task_completed = task["completed"]
-        csv_data.append([task_id, employee_name, task_completed, task_title])
+        csv_data.append([employee_id, employee_name, task_completed, task_title])
 
     with open(csv_filename, mode="w", newline="") as file:
-        writer = csv.writer(file)
-        writer.writerow(["USER_ID", "USERNAME", "TASK_COMPLETED_STATUS", "TASK_TITLE"])
+        writer = csv.writer(file, quoting=csv.QUOTE_ALL)
+        writer.writerow([employee_id, employee_name, task_completed, task_title])
         writer.writerows(csv_data)
 
     print(f"CSV file '{csv_filename}' has been created.")
